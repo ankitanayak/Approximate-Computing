@@ -1,0 +1,85 @@
+C:/Modeltech_pe_edu_10.4a/examples/approx_vector_calc.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/approx_vector_calc.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package MATH_REAL
+-- Compiling entity approx_vector_calc
+-- Compiling architecture Behavioral_approx_vector_calc of approx_vector_calc
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/mult.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/mult.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity mult
+-- Compiling architecture mult_arch of mult
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/sll_test.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/sll_test.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity sll_test
+-- Compiling architecture sll_test_arch of sll_test
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/mult2x2.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/mult2x2.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity mult_2x2
+-- Compiling architecture mult_2x2_arch of mult_2x2
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/b05.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/b05.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Compiling entity b05
+-- Compiling architecture BEHAV of b05
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/regular_multiplier.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/regular_multiplier.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity reg_mult
+-- Compiling architecture reg_mult_arch of reg_mult
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/appcomp.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/appcomp.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity app_comp
+-- Compiling architecture app_comp_arch of app_comp
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/gate_level_adder_approxadder.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/gate_level_adder_approxadder.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity gate_level_adder_approxadder
+-- Compiling architecture behav_gate_level_adder_approxadder of gate_level_adder_approxadder
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/adder_approxadder.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/adder_approxadder.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity adder_approxadder
+-- Compiling architecture behav_adder_approxadder of adder_approxadder
+
+} {} {}}

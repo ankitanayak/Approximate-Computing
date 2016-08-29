@@ -1,0 +1,197 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use ieee.numeric_std.all;
+use ieee.std_logic_unsigned.all;
+ 
+entity app_mult is
+   port
+   (
+	mxnor_value : in std_logic_vector (7 downto 0);
+	mop1 : in std_logic_vector (9 downto 0);
+      	mop2 : in std_logic_vector (9 downto 0);
+	mres : out std_logic_vector (19 downto 0)
+   );
+end entity app_mult;
+
+architecture app_mult_arch of app_mult is
+
+component app_comp
+port
+   (
+	xnor_value : in std_logic_vector (7 downto 0);
+	op1 : in std_logic_vector (19 downto 0);
+      	op2 : in std_logic_vector (19 downto 0);
+	cin : in std_logic;
+	res : out std_logic_vector (19 downto 0);
+	cout : out std_logic
+   );
+end component;
+
+component approx_vector_calc
+port
+   (a:in std_logic_vector(7 downto 0);
+    synth_sel : out std_logic_vector(19 downto 0)
+   );
+end component; 
+
+component mult is
+   port
+   (
+	num1 : in std_logic_vector (4 downto 0);
+	num2 : in std_logic_vector (4 downto 0);
+      	approx_mul_flag : in std_logic;
+	prod_num : out std_logic_vector (19 downto 0)
+   );
+end component;
+
+constant key_width: integer:=8;
+constant operand_width: integer:=10;
+constant real_key_width: real:=8.00;
+constant half_operand_width: integer:=(operand_width+1)/2;
+
+signal A, X : std_logic_vector (operand_width downto 0);
+signal AL, XL, AH, XH : std_logic_vector (half_operand_width-1 downto 0);
+signal mres1plusmres2, mres1plusmres2plusmres3 : std_logic_vector (19 downto 0);
+signal cout_junk : std_logic;
+signal shift_mres2 : std_logic_vector (19 downto 0);
+signal shift_mres3 : std_logic_vector (19 downto 0);
+signal shift_mres4 : std_logic_vector (19 downto 0);
+signal mres1 : std_logic_vector (19 downto 0);
+signal mres2 : std_logic_vector (19 downto 0);
+signal mres3 : std_logic_vector (19 downto 0);
+signal mres4 : std_logic_vector (19 downto 0);
+signal c4_sig : real;
+signal approx_mul_flag1: std_logic;
+signal approx_mul_flag2: std_logic;
+signal approx_mul_flag3: std_logic;
+signal approx_mul_flag4: std_logic;
+--signal mres1 : std_logic_vector ((4*half_operand_width)-1 downto 0);
+--signal mres2 : std_logic_vector ((4*half_operand_width)-1 downto 0);
+--signal mres3 : std_logic_vector ((4*half_operand_width)-1 downto 0);
+--signal mres4 : std_logic_vector ((4*half_operand_width)-1 downto 0);
+
+begin
+
+	process(mop1, mop2, A, X)
+	begin
+		if((operand_width mod 2)=1)then
+			A(operand_width) <= '0';
+			X(operand_width) <= '0';
+			m1:for i in 0 to operand_width-1 loop
+				A(i) <= mop1(i);
+				X(i) <= mop2(i);
+			end loop m1;
+		end if;
+
+		m2:for j in 0 to half_operand_width-1 loop
+			if((operand_width mod 2)=1)then
+				AL(j) <= A(j);
+				XL(j) <= X(j);
+			else
+				AL(j) <= mop1(j);
+				XL(j) <= mop2(j);
+			end if;
+		end loop m2;
+
+		if((operand_width mod 2)=1)then
+			m3:for k in half_operand_width to operand_width loop
+				AH(k-half_operand_width) <= A(k);
+				XH(k-half_operand_width) <= X(k);
+			end loop m3;
+		else
+			m4:for l in half_operand_width to operand_width-1 loop
+				AH(l-half_operand_width) <= mop1(l);
+				XH(l-half_operand_width) <= mop2(l);
+			end loop m4;
+		end if;		
+		
+	end process;
+
+	process(mxnor_value, c4_sig)
+	variable c3: integer;
+	begin
+		c3:=0;
+		c4_sig <= 0.0;
+		m5:for n in 0 to key_width-1 loop
+			if(mxnor_value(n)='1')then
+				c3:=c3+1;
+			end if; 
+		end loop m5;
+
+		c4_sig <= real(c3)/real_key_width;
+
+		approx_mul_flag1 <= '0';
+		approx_mul_flag2 <= '0';
+		approx_mul_flag3 <= '0';
+		approx_mul_flag4 <= '0';
+		
+		if(c4_sig > 0.0 and c4_sig <= 0.25)then
+			approx_mul_flag1 <= '1';
+		elsif(c4_sig > 0.25 and c4_sig <= 0.5)then
+			approx_mul_flag2 <= '1';
+		elsif(c4_sig > 0.5 and c4_sig <= 0.75)then
+			approx_mul_flag3 <= '1';
+		elsif(c4_sig > 0.75 and c4_sig <= 1.0)then
+			approx_mul_flag4 <= '1';
+		end if;
+
+	end process;
+
+	V1: mult port map (
+			num1 => AL,
+			num2 => XL,
+			approx_mul_flag => approx_mul_flag1,
+			prod_num => mres1);
+
+	V2: mult port map (
+			num1 => AH,
+			num2 => XL,
+			approx_mul_flag => approx_mul_flag2,
+			prod_num => mres2);
+
+	V3: mult port map (
+			num1 => AL,
+			num2 => XH,
+			approx_mul_flag => approx_mul_flag3,
+			prod_num => mres3);
+
+	V4: mult port map (
+			num1 => AH,
+			num2 => XH,
+			approx_mul_flag => approx_mul_flag4,
+			prod_num => mres4);
+
+	process(mres1, mres2, mres3, mres4, shift_mres2, shift_mres3, shift_mres4)
+	begin
+		shift_mres2 <= std_logic_vector(unsigned(mres2) sll half_operand_width);
+		shift_mres3 <= std_logic_vector(unsigned(mres3) sll half_operand_width);
+		shift_mres4 <= std_logic_vector(unsigned(mres4) sll 2*half_operand_width);
+	end process;
+
+	V5: app_comp port map (
+			xnor_value => mxnor_value,
+			op1 => mres1,
+      			op2 => shift_mres2,
+			cin => '0',
+			res => mres1plusmres2,
+			cout => cout_junk);
+
+	V6: app_comp port map (
+			xnor_value => mxnor_value,
+			op1 => mres1plusmres2,
+      			op2 => shift_mres3,
+			cin => '0',
+			res => mres1plusmres2plusmres3,
+			cout => cout_junk);
+	
+	V7: app_comp port map (
+			xnor_value => mxnor_value,
+			op1 => mres1plusmres2plusmres3,
+      			op2 => shift_mres4,
+			cin => '0',
+			res => mres,
+			cout => cout_junk);
+
+	--mres <= mres1+std_logic_vector(unsigned(mres2) sll half_operand_width)+std_logic_vector(unsigned(mres3) sll half_operand_width)+std_logic_vector(unsigned(mres4) sll 2*half_operand_width);
+
+end app_mult_arch;

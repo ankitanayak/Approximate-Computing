@@ -1,0 +1,251 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+
+entity tb_logob is
+end tb_logob;
+
+
+architecture tb_logob_behav of tb_logob is
+
+  component logob is
+   port
+   (
+	clk_out : in std_logic; 
+      	k : in std_logic; 
+	inp : in std_logic;
+	reset : in std_logic;
+	s_out: out std_logic;
+	st_sel_out: out std_logic;
+	count_out : out std_logic_vector (2 downto 0);
+      	outp : out std_logic
+   );
+  end component;
+  
+  signal t_clk_out, t_k, t_inp, t_reset, t_s_out, t_st_sel_out, t_outp: std_logic;
+  signal t_count_out : std_logic_vector (2 downto 0);
+
+
+  begin
+
+    U1 : logob
+      port map (t_clk_out, t_k, t_inp, t_reset, t_s_out, t_st_sel_out, t_count_out, t_outp);
+
+    test_process : process
+    begin
+	t_k <= '1';
+	t_inp <= '1';
+      	t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+
+	t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+
+	t_reset <= '1';
+	t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+	
+	t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+	
+	t_reset <= '0';
+	t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+t_clk_out <= '0';
+	wait for 5 ns;
+	t_clk_out <= '1'; 
+	wait for 5 ns;
+
+      wait;
+
+    end process;
+
+end tb_logob_behav;
+
+configuration CFG_TB_top of tb_logob is
+for tb_logob_behav
+end for;
+end CFG_TB_top;

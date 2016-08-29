@@ -1,0 +1,25 @@
+const_1 <= '1';
+	process (clk) is
+	begin
+		if clk' event and clk = '1' then 
+            		q <= d;
+			prev_state <= d;
+		end if;
+
+		outpwire <= q;
+
+		if st_sel = '1' then
+			d <= outpwire;
+		elsif st_sel = '0' then
+			d <= prev_state;
+		end if;
+
+	s <= count_wire(2) and count_wire(1) and count_wire(0);
+	
+	if k = '1' then
+		st_sel <= const_1;
+	elsif k = '0' then
+		st_sel <= s;
+	end if;
+
+	outp <= outpwire;

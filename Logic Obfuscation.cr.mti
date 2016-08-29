@@ -1,0 +1,208 @@
+C:/Modeltech_pe_edu_10.4a/examples/approx_vector_calc.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/approx_vector_calc.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package MATH_REAL
+-- Compiling entity approx_vector_calc
+-- Compiling architecture Behavioral_approx_vector_calc of approx_vector_calc
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/b05.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/b05.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Compiling entity b05
+-- Compiling architecture BEHAV of b05
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/clk_div_behavioral.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/clk_div_behavioral.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity clk_div_behav
+-- Compiling architecture clk_div_Behav of clk_div_behav
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/iscas99b02.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/iscas99b02.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity b02
+-- Compiling architecture BEHAV_b02 of b02
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/tb_clk_div.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/tb_clk_div.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tb_clk_div
+-- Compiling architecture tb_clk_div_behav of tb_clk_div
+-- Compiling configuration CFG_TB_top
+-- Loading entity tb_clk_div
+-- Loading architecture tb_clk_div_behav of tb_clk_div
+-- Loading entity clk_div_behav
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/mirror_adder.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/mirror_adder.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity mirror_adder
+-- Compiling architecture behav_mirror_adder of mirror_adder
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/logob1.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/logob1.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity logob
+-- Compiling architecture logob_Behav of logob
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/clk_div.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/clk_div.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity clk_div
+-- Compiling architecture clk_div_arch of clk_div
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/inv.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/inv.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity inverter
+-- Compiling architecture inverter_behav of inverter
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/tb_dff.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/tb_dff.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tb_dff
+-- Compiling architecture tb_dff_behav of tb_dff
+-- Compiling configuration CFG_TB_top
+-- Loading entity tb_dff
+-- Loading architecture tb_dff_behav of tb_dff
+-- Loading entity D_FF
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/tb_counter.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/tb_counter.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tb_Counter_3bit
+-- Compiling architecture tb_Counter_3bit_behav of tb_Counter_3bit
+-- Compiling configuration CFG_TB_top
+-- Loading entity tb_Counter_3bit
+-- Loading architecture tb_Counter_3bit_behav of tb_Counter_3bit
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading entity Counter_3bit
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/logob2.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/logob2.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity logob2
+-- Compiling architecture logob2_Behav of logob2
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/iscas99.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/iscas99.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity b01
+-- Compiling architecture BEHAV of b01
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/iscas99_b08.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/iscas99_b08.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity b08
+-- Compiling architecture BEHAV_b08 of b08
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/counter.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/counter.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity Counter_3bit
+-- Compiling architecture Behavioral of Counter_3bit
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/dff.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/dff.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity D_FF
+-- Compiling architecture DD_FF_Behav of D_FF
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/gate_level_adder_approxadder.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/gate_level_adder_approxadder.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity gate_level_adder_approxadder
+-- Compiling architecture behav_gate_level_adder_approxadder of gate_level_adder_approxadder
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/appcomp.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/appcomp.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity app_comp
+-- Compiling architecture app_comp_arch of app_comp
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/tb_logob1.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/tb_logob1.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tb_logob
+-- Compiling architecture tb_logob_behav of tb_logob
+-- Compiling configuration CFG_TB_top
+-- Loading entity tb_logob
+-- Loading architecture tb_logob_behav of tb_logob
+-- Loading entity logob
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/adder_approxadder.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/adder_approxadder.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity adder_approxadder
+-- Compiling architecture behav_adder_approxadder of adder_approxadder
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/iscas99_b14.vhd {0 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/iscas99_b14.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity b14
+-- Compiling architecture BEHAV_b14 of b14
+** Error: C:/Modeltech_pe_edu_10.4a/examples/iscas99_b14.vhd(34): (vcom-1136) Unknown identifier "k".
+
+** Error: C:/Modeltech_pe_edu_10.4a/examples/iscas99_b14.vhd(36): (vcom-1136) Unknown identifier "count_out".
+
+** Error: C:/Modeltech_pe_edu_10.4a/examples/iscas99_b14.vhd(38): (vcom-1136) Unknown identifier "k".
+
+** Error: C:/Modeltech_pe_edu_10.4a/examples/iscas99_b14.vhd(38): Expression is not a signal.
+** Error: C:/Modeltech_pe_edu_10.4a/examples/iscas99_b14.vhd(532): VHDL Compiler exiting
+
+} {8.0 9.0 10.0 11.0 12.0 13.0 14.0 16.0} {}} C:/Modeltech_pe_edu_10.4a/examples/approx_mirror_adder.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Modeltech_pe_edu_10.4a/examples/approx_mirror_adder.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity approx_mirror_adder
+-- Compiling architecture behav_approx_mirror_adder of approx_mirror_adder
+
+} {} {}}

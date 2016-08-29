@@ -1,0 +1,49 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+ 
+entity clk_div is
+   port
+   (
+	clk : in std_logic;
+	reset : in std_logic;
+      	q : out std_logic
+   );
+end entity clk_div;
+
+architecture clk_div_arch of clk_div is
+
+component inverter
+port
+   (
+	inp : in std_logic;
+    	outp : out std_logic
+   );
+end component;
+
+component D_FF
+port
+   (
+      	clk : in std_logic; 
+      	d : in std_logic;
+	reset : in std_logic; 
+      	q : out std_logic
+   );
+end component;
+
+signal qwire, dwire : std_logic;
+
+begin 
+
+  U1 : D_FF port map (
+    	clk => clk,
+    	d => dwire,
+	reset => reset,
+    	q => qwire);
+	
+  U2 : inverter port map (
+    	inp => qwire,
+    	outp => dwire); 
+
+q <= qwire
+
+end clk_div_arch;
