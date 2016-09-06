@@ -53,7 +53,7 @@ signal mres1 : std_logic_vector (19 downto 0);
 signal mres2 : std_logic_vector (19 downto 0);
 signal mres3 : std_logic_vector (19 downto 0);
 signal mres4 : std_logic_vector (19 downto 0);
-signal c4_sig : real;
+signal c4_sig : integer;
 signal approx_mul_flag1: std_logic;
 signal approx_mul_flag2: std_logic;
 signal approx_mul_flag3: std_logic;
@@ -104,27 +104,34 @@ begin
 	variable c3: integer;
 	begin
 		c3:=0;
-		c4_sig <= 0.0;
+		c4_sig <= 0;
 		m5:for n in 0 to key_width-1 loop
 			if(mxnor_value(n)='1')then
 				c3:=c3+1;
 			end if; 
 		end loop m5;
 
-		c4_sig <= real(c3)/real_key_width;
+		--c4_sig <= real(c3)/real_key_width;
+		c4_sig <= (c3*100)/key_width;
 
 		approx_mul_flag1 <= '0';
 		approx_mul_flag2 <= '0';
 		approx_mul_flag3 <= '0';
 		approx_mul_flag4 <= '0';
 		
-		if(c4_sig > 0.0 and c4_sig <= 0.25)then
+		if(c4_sig > 0 and c4_sig <= 25)then
 			approx_mul_flag1 <= '1';
-		elsif(c4_sig > 0.25 and c4_sig <= 0.5)then
+		elsif(c4_sig > 25 and c4_sig <= 50)then
+			approx_mul_flag1 <= '1';
 			approx_mul_flag2 <= '1';
-		elsif(c4_sig > 0.5 and c4_sig <= 0.75)then
+		elsif(c4_sig > 50 and c4_sig <= 75)then
+			approx_mul_flag1 <= '1';
+			approx_mul_flag2 <= '1';
 			approx_mul_flag3 <= '1';
-		elsif(c4_sig > 0.75 and c4_sig <= 1.0)then
+		elsif(c4_sig > 75 and c4_sig <= 100)then
+			approx_mul_flag1 <= '1';
+			approx_mul_flag2 <= '1';
+			approx_mul_flag3 <= '1';
 			approx_mul_flag4 <= '1';
 		end if;
 
