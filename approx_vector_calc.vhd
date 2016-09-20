@@ -7,17 +7,17 @@ use IEEE.MATH_REAL.all;
 entity approx_vector_calc is
 port
    (
-	a:in std_logic_vector(7 downto 0);
-	synth_sel : out std_logic_vector(19 downto 0)
+	a:in std_logic_vector(15 downto 0);
+	synth_sel : out std_logic_vector(13 downto 0)
    );
 
 end approx_vector_calc; 
 architecture Behavioral_approx_vector_calc of approx_vector_calc is
 
-constant key_width: integer:=8;
-constant operand_width: integer:=20;
-constant real_key_width: real:=8.00;
-constant real_operand_width: real:=20.00;
+constant key_width: integer:=16;
+constant operand_width: integer:=14;
+constant real_key_width: real:=16.00;
+constant real_operand_width: real:=14.00;
 
 --signal c,c2: integer;
 

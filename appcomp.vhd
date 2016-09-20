@@ -6,11 +6,11 @@ use ieee.std_logic_unsigned.all;
 entity app_comp is
    port
    (
-	xnor_value : in std_logic_vector (7 downto 0);
-	op1 : in std_logic_vector (19 downto 0);
-      	op2 : in std_logic_vector (19 downto 0);
+	xnor_value : in std_logic_vector (15 downto 0);
+	op1 : in std_logic_vector (13 downto 0);
+      	op2 : in std_logic_vector (13 downto 0);
 	cin : in std_logic;
-	res : out std_logic_vector (19 downto 0);
+	res : out std_logic_vector (13 downto 0);
 	cout : out std_logic
    );
 end entity app_comp;
@@ -31,13 +31,13 @@ end component;
 
 component approx_vector_calc
 port
-   (a:in std_logic_vector(7 downto 0);
-    synth_sel : out std_logic_vector(19 downto 0)
+   (a:in std_logic_vector(15 downto 0);
+    synth_sel : out std_logic_vector(13 downto 0)
    );
 end component; 
 
-constant key_width: integer:=8;
-constant operand_width: integer:=20;
+constant key_width: integer:=16;
+constant operand_width: integer:=14;
 
 signal c : std_logic_vector (operand_width downto 0);
 signal approx_vector : std_logic_vector (operand_width-1 downto 0);
