@@ -13,6 +13,10 @@ entity blur is
 	blur_clk : in std_logic;
 	blur_xnor_value : in std_logic_vector (12 downto 0);
 	blur_matrix_int : in blur_matrix_int_type;
+	blur_top : blur_neighbor_row_type;
+	blur_bot : blur_neighbor_row_type;
+	blur_left : blur_neighbor_column_type;
+	blur_right : blur_neighbor_column_type;
 	blur_res_matrix : out blur_res_matrix_type
    );
 end entity blur;
@@ -40,15 +44,8 @@ type blur_matrix_type is array (0 to matrix_size-1) of blur_matrix_row_type;
 type blur_sum_matrix_row_type is array (0 to matrix_size-1) of std_logic_vector(operand_width-1 downto 0);
 type blur_sum_matrix_type is array (0 to matrix_size-1) of blur_sum_matrix_row_type;
 
---type blur_res_matrix_row_type is array (0 to matrix_size-1) of std_logic_vector(result_width-1 downto 0);
---type blur_res_matrix_type is array (0 to matrix_size-1) of blur_res_matrix_row_type;
-
---type blur_matrix_int_type is array (0 to (matrix_size*matrix_size)-1) of integer;
-
 signal blur_matrix : blur_matrix_type;
 signal blur_sum_matrix : blur_sum_matrix_type;
---signal blur_res_matrix : blur_res_matrix_type;
---signal blur_matrix_int : blur_matrix_int_type;
 
 begin
 	process(blur_matrix_int, blur_matrix, blur_clk)
@@ -66,72 +63,32 @@ begin
 				end loop blur_comp11;
 			end loop blur_comp10;
 	
-			blur_sum_matrix(0)(0) <= conv_std_logic_vector((blur_matrix(0)(0)+blur_matrix(0)(1)+blur_matrix(1)(0)+blur_matrix(1)(1)),12);
-			blur_sum_matrix(0)(matrix_size-1) <= conv_std_logic_vector((blur_matrix(0)(matrix_size-2)+blur_matrix(0)(matrix_size-1)+blur_matrix(1)(matrix_size-2)+blur_matrix(1)(matrix_size-1)),12);
-			blur_sum_matrix(matrix_size-1)(0) <= conv_std_logic_vector((blur_matrix(matrix_size-2)(0)+blur_matrix(matrix_size-2)(1)+blur_matrix(matrix_size-1)(0)+blur_matrix(matrix_size-1)(1)),12);
-			blur_sum_matrix(matrix_size-1)(matrix_size-1) <= conv_std_logic_vector((blur_matrix(matrix_size-2)(matrix_size-2)+blur_matrix(matrix_size-2)(matrix_size-1)+blur_matrix(matrix_size-1)(matrix_size-2)+blur_matrix(matrix_size-1)(matrix_size-1)),12);
+			--blur_sum_matrix(0)(0) <= conv_std_logic_vector((blur_matrix(0)(0)+blur_matrix(0)(1)+blur_matrix(1)(0)+blur_matrix(1)(1)),12);
+			blur_sum_matrix(0)(0) <= conv_std_logic_vector((blur_matrix(0)(0)+blur_matrix(0)(1)+blur_matrix(1)(0)+blur_matrix(1)(1)+blur_top(0)+blur_top(1)+blur_top(2)+blur_left(0)+blur_left(1)),12);
+			--blur_sum_matrix(0)(matrix_size-1) <= conv_std_logic_vector((blur_matrix(0)(matrix_size-2)+blur_matrix(0)(matrix_size-1)+blur_matrix(1)(matrix_size-2)+blur_matrix(1)(matrix_size-1)),12);
+			blur_sum_matrix(0)(matrix_size-1) <= conv_std_logic_vector((blur_matrix(0)(matrix_size-2)+blur_matrix(0)(matrix_size-1)+blur_matrix(1)(matrix_size-2)+blur_matrix(1)(matrix_size-1)+blur_top(matrix_size-1)+blur_top(matrix_size)+blur_top(matrix_size+1)+blur_right(0)+blur_right(1)),12);
+			--blur_sum_matrix(matrix_size-1)(0) <= conv_std_logic_vector((blur_matrix(matrix_size-2)(0)+blur_matrix(matrix_size-2)(1)+blur_matrix(matrix_size-1)(0)+blur_matrix(matrix_size-1)(1)),12);
+			blur_sum_matrix(matrix_size-1)(0) <= conv_std_logic_vector((blur_matrix(matrix_size-2)(0)+blur_matrix(matrix_size-2)(1)+blur_matrix(matrix_size-1)(0)+blur_matrix(matrix_size-1)(1)+blur_bot(0)+blur_bot(1)+blur_bot(2)+blur_left(matrix_size-2)+blur_left(matrix_size-1)),12);
+			--blur_sum_matrix(matrix_size-1)(matrix_size-1) <= conv_std_logic_vector((blur_matrix(matrix_size-2)(matrix_size-2)+blur_matrix(matrix_size-2)(matrix_size-1)+blur_matrix(matrix_size-1)(matrix_size-2)+blur_matrix(matrix_size-1)(matrix_size-1)),12);
+			blur_sum_matrix(matrix_size-1)(matrix_size-1) <= conv_std_logic_vector((blur_matrix(matrix_size-2)(matrix_size-2)+blur_matrix(matrix_size-2)(matrix_size-1)+blur_matrix(matrix_size-1)(matrix_size-2)+blur_matrix(matrix_size-1)(matrix_size-1)+blur_bot(matrix_size-1)+blur_bot(matrix_size)+blur_bot(matrix_size+1)+blur_right(matrix_size-2)+blur_right(matrix_size-1)),12);
 		
 			blur_comp12:for k in 1 to matrix_size-2 loop
-				blur_sum_matrix(0)(k) <= conv_std_logic_vector((blur_matrix(0)(k-1)+blur_matrix(0)(k)+blur_matrix(0)(k+1)+blur_matrix(1)(k-1)+blur_matrix(1)(k)+blur_matrix(1)(k+1)),12);
-				blur_sum_matrix(k)(0) <= conv_std_logic_vector((blur_matrix(k-1)(0)+blur_matrix(k-1)(1)+blur_matrix(k)(0)+blur_matrix(k)(1)+blur_matrix(k+1)(0)+blur_matrix(k+1)(1)),12);
-				blur_sum_matrix(matrix_size-1)(k) <= conv_std_logic_vector((blur_matrix(matrix_size-2)(k-1)+blur_matrix(matrix_size-2)(k)+blur_matrix(matrix_size-2)(k+1)+blur_matrix(matrix_size-1)(k-1)+blur_matrix(matrix_size-1)(k)+blur_matrix(matrix_size-1)(k+1)),12);
-				blur_sum_matrix(k)(matrix_size-1) <= conv_std_logic_vector((blur_matrix(k-1)(matrix_size-2)+blur_matrix(k-1)(matrix_size-1)+blur_matrix(k)(matrix_size-2)+blur_matrix(k)(matrix_size-1)+blur_matrix(k+1)(matrix_size-2)+blur_matrix(k+1)(matrix_size-1)),12);
+				--blur_sum_matrix(0)(k) <= conv_std_logic_vector((blur_matrix(0)(k-1)+blur_matrix(0)(k)+blur_matrix(0)(k+1)+blur_matrix(1)(k-1)+blur_matrix(1)(k)+blur_matrix(1)(k+1)),12);
+				blur_sum_matrix(0)(k) <= conv_std_logic_vector((blur_matrix(0)(k-1)+blur_matrix(0)(k)+blur_matrix(0)(k+1)+blur_matrix(1)(k-1)+blur_matrix(1)(k)+blur_matrix(1)(k+1)+blur_top(k)+blur_top(k+1)+blur_top(k+2)),12);
+				--blur_sum_matrix(k)(0) <= conv_std_logic_vector((blur_matrix(k-1)(0)+blur_matrix(k-1)(1)+blur_matrix(k)(0)+blur_matrix(k)(1)+blur_matrix(k+1)(0)+blur_matrix(k+1)(1)),12);
+				blur_sum_matrix(k)(0) <= conv_std_logic_vector((blur_matrix(k-1)(0)+blur_matrix(k-1)(1)+blur_matrix(k)(0)+blur_matrix(k)(1)+blur_matrix(k+1)(0)+blur_matrix(k+1)(1)+blur_left(k-1)+blur_left(k)+blur_left(k+1)),12);
+				--blur_sum_matrix(matrix_size-1)(k) <= conv_std_logic_vector((blur_matrix(matrix_size-2)(k-1)+blur_matrix(matrix_size-2)(k)+blur_matrix(matrix_size-2)(k+1)+blur_matrix(matrix_size-1)(k-1)+blur_matrix(matrix_size-1)(k)+blur_matrix(matrix_size-1)(k+1)),12);
+				blur_sum_matrix(matrix_size-1)(k) <= conv_std_logic_vector((blur_matrix(matrix_size-2)(k-1)+blur_matrix(matrix_size-2)(k)+blur_matrix(matrix_size-2)(k+1)+blur_matrix(matrix_size-1)(k-1)+blur_matrix(matrix_size-1)(k)+blur_matrix(matrix_size-1)(k+1)+blur_bot(k)+blur_bot(k+1)+blur_bot(k+2)),12);
+				--blur_sum_matrix(k)(matrix_size-1) <= conv_std_logic_vector((blur_matrix(k-1)(matrix_size-2)+blur_matrix(k-1)(matrix_size-1)+blur_matrix(k)(matrix_size-2)+blur_matrix(k)(matrix_size-1)+blur_matrix(k+1)(matrix_size-2)+blur_matrix(k+1)(matrix_size-1)),12);
+				blur_sum_matrix(k)(matrix_size-1) <= conv_std_logic_vector((blur_matrix(k-1)(matrix_size-2)+blur_matrix(k-1)(matrix_size-1)+blur_matrix(k)(matrix_size-2)+blur_matrix(k)(matrix_size-1)+blur_matrix(k+1)(matrix_size-2)+blur_matrix(k+1)(matrix_size-1)+blur_right(k-1)+blur_right(k)+blur_right(k+1)),12);
 			end loop blur_comp12;
 
 		end if;
 		
 	end process;
 
-	blur_comp0: blur_mult port map (blur_mult_regxnor_value => blur_xnor_value,
-							blur_mult_regop1 => blur_sum_matrix(0)(0),
-      							blur_mult_regop2 => "001000000000",
-							blur_mult_regres => blur_res_matrix(0)(0));
-
-	blur_comp1: blur_mult port map (blur_mult_regxnor_value => blur_xnor_value,
-							blur_mult_regop1 => blur_sum_matrix(0)(matrix_size-1),
-      							blur_mult_regop2 => "001000000000",
-							blur_mult_regres => blur_res_matrix(0)(matrix_size-1));
-	
-	blur_comp2: blur_mult port map (blur_mult_regxnor_value => blur_xnor_value,
-							blur_mult_regop1 => blur_sum_matrix(matrix_size-1)(0),
-      							blur_mult_regop2 => "001000000000",
-							blur_mult_regres => blur_res_matrix(matrix_size-1)(0));
-
-	blur_comp3: blur_mult port map (blur_mult_regxnor_value => blur_xnor_value,
-							blur_mult_regop1 => blur_sum_matrix(matrix_size-1)(matrix_size-1),
-      							blur_mult_regop2 => "001000000000",
-							blur_mult_regres => blur_res_matrix(matrix_size-1)(matrix_size-1));
- 
-	blur_comp4: for m in 1 to matrix_size-2 generate
-		blur_comp4_m : blur_mult port map (blur_mult_regxnor_value => blur_xnor_value,
-							blur_mult_regop1 => blur_sum_matrix(0)(m),
-      							blur_mult_regop2 => "000101000111",
-							blur_mult_regres => blur_res_matrix(0)(m));
-	end generate blur_comp4;
-
-	blur_comp5: for m in 1 to matrix_size-2 generate
-		blur_comp5_m : blur_mult port map (blur_mult_regxnor_value => blur_xnor_value,
-							blur_mult_regop1 => blur_sum_matrix(m)(0),
-      							blur_mult_regop2 => "000101000111",
-							blur_mult_regres => blur_res_matrix(m)(0));
-	end generate blur_comp5;
-	
-	blur_comp6: for m in 1 to matrix_size-2 generate
-		blur_comp6_m : blur_mult port map (blur_mult_regxnor_value => blur_xnor_value,
-							blur_mult_regop1 => blur_sum_matrix(matrix_size-1)(m),
-      							blur_mult_regop2 => "000101000111",
-							blur_mult_regres => blur_res_matrix(matrix_size-1)(m));
-	end generate blur_comp6;
-
-	blur_comp7: for m in 1 to matrix_size-2 generate
-		blur_comp7_m : blur_mult port map (blur_mult_regxnor_value => blur_xnor_value,
-							blur_mult_regop1 => blur_sum_matrix(m)(matrix_size-1),
-      							blur_mult_regop2 => "000101000111",
-							blur_mult_regres => blur_res_matrix(m)(matrix_size-1));
-	end generate blur_comp7;
-
-	blur_comp8: for m in 1 to matrix_size-2 generate
-		blur_comp9: for n in 1 to matrix_size-2 generate
+	blur_comp8: for m in 0 to matrix_size-1 generate
+		blur_comp9: for n in 0 to matrix_size-1 generate
 			blur_com9_m : blur_mult port map (blur_mult_regxnor_value => blur_xnor_value,
 							blur_mult_regop1 => blur_sum_matrix(m)(n),
       							blur_mult_regop2 => "000011100001",
